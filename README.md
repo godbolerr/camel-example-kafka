@@ -14,6 +14,11 @@ bin\windows\kafka-topics.bat --create --zookeeper <zookeeper host ip>:<port> --r
 This project consists of the following examples:
 
 
+	1. Send messages continuously by typing on the command line.
+	2. Example of partitioner for a given producer.
+	3. Topic is sent in the header as well as in the URL.
+
+
 
 ### Build
 

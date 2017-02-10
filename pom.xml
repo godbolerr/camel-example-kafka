@@ -46,56 +46,52 @@
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<scope>runtime</scope>
+			<version>2.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<scope>runtime</scope>
+			<version>2.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j-impl</artifactId>
-			<scope>runtime</scope>
+			<version>2.7</version>
 		</dependency>
-
 	</dependencies>
 
 	<profiles>
 
 		<profile>
 			<id>kafka-producer</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<configuration>
-							<mainClass>org.apache.camel.example.kafka.MessagePublisherClient</mainClass>
-							<includePluginDependencies>false</includePluginDependencies>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
+			<properties>
+				<target.main.class>org.apache.camel.example.kafka.MessagePublisherClient</target.main.class>
+			</properties>
 		</profile>
 
 		<profile>
 			<id>kafka-consumer</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<configuration>
-							<mainClass>org.apache.camel.example.kafka.MessageConsumerClient</mainClass>
-							<includePluginDependencies>false</includePluginDependencies>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
+			<properties>
+				<target.main.class>org.apache.camel.example.kafka.MessageConsumerClient</target.main.class>
+			</properties>
 		</profile>
 
 
 	</profiles>
+
+	<build>
+		<plugins>
+			<!-- Allows the example to be run via 'mvn compile exec:java' -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${target.main.class}</mainClass>
+					<includePluginDependencies>false</includePluginDependencies>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 
 </project>
