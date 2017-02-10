@@ -50,8 +50,6 @@ You will need to compile this example first:
 You can configure the details in the file:
   `src/main/resources/application.properties`
 
-You can enable verbose logging by adjusting the `src/main/resources/log4j.properties`
-  file as documented in the file.
 
 
 ### Forum, Help, etc
