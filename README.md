@@ -8,8 +8,9 @@ This example requires that Kafka Server is up and running.
 
 You will need to create following topics before you run the examples.
 
-bin\windows\kafka-topics.bat --create --zookeeper <zookeeper host ip>:<port> --replication-factor 1 --partitions 2 --topic WebLogs
-bin\windows\kafka-topics.bat --create --zookeeper <zookeeper host ip>:<port> --replication-factor 1 --partitions 1 --topic AccessLog
+1. bin\windows\kafka-topics.bat --create --zookeeper <zookeeper host ip>:<port> --replication-factor 1 --partitions 2 --topic WebLogs
+
+2. bin\windows\kafka-topics.bat --create --zookeeper <zookeeper host ip>:<port> --replication-factor 1 --partitions 1 --topic AccessLog
 
 This project consists of the following examples:
 
